@@ -1,5 +1,12 @@
-// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
+//Object Definition
+function Quote(quote, source, citation, year, id) {
+    this.quote = quote;
+    this.source = source;
+    this.citation = citation || "";
+    this.year = year || "";
+    this.id = id;
+}
+//Global Variables
 let quotes = [
     new Quote("Don\'t cry because it\'s over, smile because it happened.", "Dr. Suess", 0),
     new Quote("Do not take life too seriously. You will never get out of it alive.", "Elbert Hubbard", "Life", "1942", 1),
@@ -10,16 +17,16 @@ let quotes = [
 ];
 let usedQuotes = [];
 
+
+// event listener to respond to "Show another quote" button clicks
+// when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-function Quote(quote, source, citation, year, id) {
-    this.quote = quote;
-    this.source = source;
-    this.citation = citation || "";
-    this.year = year || "";
-    this.id = id;
-}
+//OR load a new quote every 10 seconds
 
+setInterval(function() {
+    printQuote();
+}, 10000);
 
 
 function getRandomQuote(){
