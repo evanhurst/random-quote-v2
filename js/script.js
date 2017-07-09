@@ -62,9 +62,9 @@ function printQuote() {
     if(randomQuote.year) {
         quoteString += '<span class="year">'+ randomQuote.year + '</span>';
     };
-    
+    quoteString += '<span class="category">' + randomQuote.category + '</span>';    
     quoteString += '</p>';
-    quoteString += '<p class="category">' + randomQuote.category + '</p>';
+
     
     document.getElementById('quote-box').innerHTML = quoteString;
     
